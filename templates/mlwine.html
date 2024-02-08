@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<!-- From https://codepen.io/frytyler/pen/EGdtg -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML API</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #080710;
+        }
+
+        .co {
+            background-color: rgba(255, 255, 255, 0.13);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(79, 67, 173, 0.6);
+        }
+
+        .co * {
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            outline: none;
+            border: none;
+        }
+
+        input {
+            display: block;
+            height: 50px;
+            width: 95%;
+            background-color: rgba(255, 255, 255, 0.07);
+            border-radius: 10px;
+            padding: 0 10px;
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        ::placeholder {
+            color: #eeebeb;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="co col-11 col-md-5 mt-4">
+            <center>
+                <div class="login mt-4">
+                    <h1 class="text-light">Wine Quality Detection</h1>
+                    <form action="{{ url_for('predict') }}" method="post">
+                        <label for="fixed acidity">Fixed Acidity:</label>
+                        <input type="text" name="fixed acidity" id="fixed acidity" placeholder="Fixed Acidity"
+                            required="required"><br>
+                        <label for="volatile acidity">Volatile Acidity:</label>
+                        <input type="text" name="volatile acidity" id="volatile acidity" placeholder="Volatile Acidity" required="required"><br>
+                        <label for="citric acid">Citric Acid:</label>
+                        <input type="text" name="citric acid" id="citric acid" placeholder="Citric Acid"
+                            required="required"><br>
+                        <label for="residual sugar">Residual Sugar:</label>
+                        <input type="text" name="residual sugar" id="residual sugar" placeholder="Residual Sugar"
+                            required="required"><br>
+                        <label for="chlorides">Chlorides:</label>
+                        <input type="text" name="chlorides" id="chlorides" placeholder="Chlorides"
+                            required="required"><br>
+                        <label for="free sulfur dioxide">Free Sulfur Dioxide:</label>
+                        <input type="text" name="free sulfur dioxide" id="free sulfur dioxide" placeholder="Free Sulfur Dioxide"
+                            required="required"><br>
+                        <label for="total sulfur dioxide">Total Sulfur Dioxide:</label>
+                        <input type="text" name="total sulfur dioxide" id="total sulfur dioxide" placeholder="Total Sulfur Dioxide"
+                            required="required"><br>
+                        <label for="density">Density:</label>
+                        <input type="text" name="density" id="density" placeholder="Density"
+                            required="required"><br>
+                        <label for="pH">pH:</label>
+                        <input type="text" name="pH" id="pH" placeholder="pH"
+                            required="required"><br>
+                        <label for="sulphates">Sulphates:</label>
+                        <input type="text" name="sulphates" id="sulphates" placeholder="Sulphates"
+                            required="required"><br>
+                        <label for="alcohol">Alcohol:</label>
+                        <input type="text" name="alcohol" id="alcohol" placeholder="Alcohol"
+                            required="required"><br>
+                        <button type="submit" style="background-color: #4CAF50; /* Green */
+                         color: rgb(8, 1, 1);
+                         padding: 10px 20px;
+                         text-align: center;
+                         text-decoration: none;
+                         display: inline-block;
+                         font-size: 16px;
+                         border-radius: 5px;
+                         cursor: pointer;">Predict</button>
+
+                    </form>
+                </div>
+                <div class="mt-0 mb-4">
+                    {{prediction_text}}
+                </div>
+            </center>
+        </div>
+    </div>
+</div>
+</body>
