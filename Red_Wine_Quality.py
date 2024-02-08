@@ -1,5 +1,5 @@
 # Import The Dependencies
-# Import Libraries :-
+# Import Libraries
 
 import pandas as pd 
 import numpy as np 
@@ -8,7 +8,7 @@ import seaborn as sbn
 import sys
 import random as rnd 
 
-# Machine Learning Libraries :-
+# Machine Learning Libraries
 
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
